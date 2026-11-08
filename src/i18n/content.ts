@@ -86,7 +86,6 @@ export const content = {
       subtitleStrong: 'C#/.NET, Node.js e React',
       cta1: 'Ver projetos',
       cta2: 'Falar comigo',
-      location: 'Natal, RN · trabalho remoto',
     },
     panel: {
       label: 'Ilustração: painel de operação com contadores, gráfico e logs de um sistema em produção. Dados ilustrativos.',
@@ -265,7 +264,6 @@ export const content = {
       subtitleStrong: 'C#/.NET, Node.js and React',
       cta1: 'See projects',
       cta2: 'Get in touch',
-      location: 'Natal, Brazil · remote work',
     },
     panel: {
       label: 'Illustration: operations panel with counters, a chart and logs from a production system. Illustrative data.',
