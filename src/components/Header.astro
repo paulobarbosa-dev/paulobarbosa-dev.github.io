@@ -1,0 +1,347 @@
+---
+import type { Locale } from '../i18n/content'
+import { content } from '../i18n/content'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = content[locale]
+---
+
+<header class="header" data-anim-header>
+  <div class="wrap bar">
+    <a href="#topo" class="logo mono">paulo<span>.</span></a>
+    <div class="right">
+      <nav aria-label={t.ui.sections} class="nav">
+        {t.nav.map(([id, label]) => <a href={`#${id}`}>{label}</a>)}
+      </nav>
+      <div class="tools">
+        <div role="group" aria-label={t.ui.language} class="lang mono">
+          <a href="/" aria-current={locale === 'pt' ? 'true' : undefined} lang="pt-BR">PT</a>
+          <a href="/en/" aria-current={locale === 'en' ? 'true' : undefined} lang="en">EN</a>
+        </div>
+        <button type="button" class="icon-btn theme-toggle desktop-only" data-label-light={t.ui.toLight} data-label-dark={t.ui.toDark} aria-label={t.ui.toLight}>
+          <svg class="sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          <svg class="moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>
+        </button>
+        <a href={t.resumeFile} class="resume desktop-only" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>
+          {t.ui.resume}
+        </a>
+        <button type="button" class="icon-btn menu-btn mobile-only" aria-label={t.ui.openMenu} aria-expanded="false" aria-controls="mobile-menu" data-open={t.ui.openMenu} data-close={t.ui.closeMenu}>
+          <svg class="burger" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M10 17h10"></path></svg>
+          <svg class="close" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"></path></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu dots" hidden>
+    <nav aria-label={t.ui.sections}>
+      <ol>
+        {t.nav.map(([id, label], i) => (
+          <li><a href={`#${id}`}><span class="mono">0{i + 1}</span>{label}</a></li>
+        ))}
+      </ol>
+    </nav>
+    <div class="menu-foot">
+      <div class="menu-row">
+        <div role="group" aria-label={t.ui.language} class="lang lang-lg mono">
+          <a href="/" aria-current={locale === 'pt' ? 'true' : undefined}>PT</a>
+          <a href="/en/" aria-current={locale === 'en' ? 'true' : undefined}>EN</a>
+        </div>
+        <button type="button" class="theme-pill theme-toggle" data-label-light={t.ui.toLight} data-label-dark={t.ui.toDark} data-text-light={t.ui.lightLabel} data-text-dark={t.ui.darkLabel} aria-label={t.ui.toLight}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path></svg>
+          <span class="theme-text">{t.ui.lightLabel}</span>
+        </button>
+      </div>
+      <a href={t.resumeFile} class="resume-lg" download>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"></path></svg>
+        {t.ui.resumeFull}
+      </a>
+      <a href="mailto:paulobarbosacode@gmail.com" class="menu-mail mono">paulobarbosacode@gmail.com</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: var(--bg-header);
+    border-bottom: 1px solid rgba(169, 163, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .bar {
+    padding-top: 14px;
+    padding-bottom: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .logo {
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--strong);
+    letter-spacing: -0.02em;
+    text-decoration: none;
+  }
+  .logo span {
+    color: var(--accent);
+  }
+  .right {
+    flex: 1 1 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-left: clamp(24px, 5vw, 80px);
+  }
+  .nav {
+    display: flex;
+    gap: 28px;
+    font-size: 14px;
+  }
+  .nav a {
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 200ms;
+  }
+  .nav a:hover {
+    color: var(--strong);
+  }
+  .tools {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+  }
+  .lang {
+    display: flex;
+    padding: 3px;
+    border: 1px solid var(--border-2);
+    border-radius: 999px;
+    font-size: 12px;
+    position: relative;
+  }
+  .lang a {
+    padding: 6px 10px;
+    border-radius: 999px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: background-color 250ms, color 250ms;
+  }
+  .lang a[aria-current='true'] {
+    background: rgba(109, 93, 252, 0.22);
+    color: var(--strong);
+  }
+  .icon-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--border-2);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: color 200ms, border-color 200ms;
+  }
+  .icon-btn:hover {
+    color: var(--strong);
+    border-color: var(--border-3);
+  }
+  :global([data-theme='light']) .theme-toggle .sun,
+  .theme-toggle .moon {
+    display: none;
+  }
+  :global([data-theme='light']) .theme-toggle .moon {
+    display: block;
+  }
+  .resume {
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border-2);
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 200ms, background-color 200ms;
+  }
+  .resume:hover {
+    border-color: var(--border-3);
+    background: var(--chip-bg);
+  }
+  .mobile-only {
+    display: none;
+  }
+  .menu-btn .close {
+    display: none;
+  }
+  .menu-btn[aria-expanded='true'] .burger {
+    display: none;
+  }
+  .menu-btn[aria-expanded='true'] .close {
+    display: block;
+  }
+  .menu-btn[aria-expanded='true'] {
+    background: rgba(109, 93, 252, 0.18);
+    color: var(--strong);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    inset: 73px 0 0;
+    z-index: 49;
+    background-color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 24px clamp(16px, 4vw, 40px) 28px;
+    overflow-y: auto;
+  }
+  .mobile-menu[hidden] {
+    display: none;
+  }
+  .mobile-menu ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .mobile-menu li a {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--strong);
+    text-decoration: none;
+  }
+  .mobile-menu li a span {
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--accent-2);
+  }
+  .menu-foot {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 32px;
+  }
+  .menu-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .lang-lg {
+    font-size: 13px;
+  }
+  .lang-lg a {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+  }
+  .theme-pill {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 999px;
+    border: 1px solid var(--border-2);
+    background: transparent;
+    color: var(--muted);
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  .resume-lg {
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .menu-mail {
+    text-align: center;
+    font-size: 12.5px;
+    color: var(--dim);
+    text-decoration: none;
+  }
+
+  @media (max-width: 900px) {
+    .nav,
+    .desktop-only {
+      display: none;
+    }
+    .mobile-only {
+      display: flex;
+    }
+    .right {
+      padding-left: 0;
+    }
+  }
+</style>
+
+<script>
+  const root = document.documentElement
+  const toggles = document.querySelectorAll<HTMLButtonElement>('.theme-toggle')
+
+  function syncThemeLabels() {
+    const dark = root.dataset.theme !== 'light'
+    toggles.forEach((b) => {
+      b.setAttribute('aria-label', (dark ? b.dataset.labelLight : b.dataset.labelDark) ?? '')
+      const text = b.querySelector('.theme-text')
+      if (text) text.textContent = (dark ? b.dataset.textLight : b.dataset.textDark) ?? ''
+    })
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#0b0f19' : '#f6f6fb')
+  }
+
+  toggles.forEach((b) =>
+    b.addEventListener('click', () => {
+      const next = root.dataset.theme === 'light' ? 'dark' : 'light'
+      root.classList.add('theme-fade')
+      root.dataset.theme = next
+      try {
+        localStorage.setItem('theme', next)
+      } catch {}
+      syncThemeLabels()
+      window.setTimeout(() => root.classList.remove('theme-fade'), 350)
+    }),
+  )
+  syncThemeLabels()
+
+  const menuBtn = document.querySelector<HTMLButtonElement>('.menu-btn')
+  const menu = document.getElementById('mobile-menu')
+  function setMenu(open: boolean) {
+    if (!menuBtn || !menu) return
+    menu.hidden = !open
+    menuBtn.setAttribute('aria-expanded', String(open))
+    menuBtn.setAttribute('aria-label', (open ? menuBtn.dataset.close : menuBtn.dataset.open) ?? '')
+    document.body.style.overflow = open ? 'hidden' : ''
+    window.dispatchEvent(new CustomEvent('menu', { detail: open }))
+  }
+  menuBtn?.addEventListener('click', () => setMenu(menu?.hidden ?? true))
+  menu?.querySelectorAll('a[href^="#"]').forEach((a) => a.addEventListener('click', () => setMenu(false)))
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu && !menu.hidden) setMenu(false)
+  })
+</script>

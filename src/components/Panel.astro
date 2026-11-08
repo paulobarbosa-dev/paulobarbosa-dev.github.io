@@ -1,0 +1,225 @@
+---
+import type { Locale } from '../i18n/content'
+import { content } from '../i18n/content'
+
+interface Props {
+  locale: Locale
+}
+
+const { locale } = Astro.props
+const t = content[locale].panel
+
+const points = [34, 31, 28, 30, 24, 20, 23, 26, 22, 18, 14, 17, 20, 16, 12, 9, 14, 16, 11, 7, 11, 15, 12, 8, 6, 10, 12, 7, 5, 8]
+const line = points.map((y, i) => `${((i * 300) / (points.length - 1)).toFixed(1)},${y}`).join(' ')
+
+const logs: [string, string, string, string][] = [
+  ['15:58:01', 'GET', '/health 200', '3ms'],
+  ['15:58:02', 'HOOK', 'webhook mercadolivre ok', '21ms'],
+  ['15:58:03', 'GET', '/products?store=42 200', '14ms'],
+  ['15:58:04', 'JOB', 'job sync-stock done', '1.2s'],
+  ['15:58:05', 'PUT', '/stock/batch 200', '86ms'],
+  ['15:58:05', 'HOOK', 'webhook pagamento ok', '17ms'],
+  ['15:58:06', 'POST', '/orders 201', '41ms'],
+  ['15:58:07', 'JOB', 'job reconcile-finance done', '1.8s'],
+]
+const fmt = (n: number) => n.toLocaleString(locale === 'pt' ? 'pt-BR' : 'en-US')
+---
+
+<div class="panel mono" role="img" aria-label={t.label} data-panel data-locale={locale}>
+  <div class="top">
+    <div class="win">
+      <span></span><span></span><span></span>
+      <b>{t.title}</b>
+    </div>
+    <div class="live"><i></i>{t.live}</div>
+  </div>
+  <div class="stats">
+    <div><span class="k">{t.requests}</span><span class="v" data-count="412870">{fmt(412870)}</span></div>
+    <div><span class="k">{t.webhooks}</span><span class="v" data-count="18342">{fmt(18342)}</span></div>
+    <div><span class="k">{t.jobs}</span><span class="v" data-count="9216">{fmt(9216)}</span></div>
+  </div>
+  <div class="chart">
+    <div class="chart-head"><span>{t.chart}</span><span class="rate"><b data-rate>{locale === 'pt' ? '7,2' : '7.2'}</b> req/s</span></div>
+    <svg viewBox="0 0 300 64" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <linearGradient id="pbSpark" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#6d5dfc" stop-opacity="0.35"></stop>
+          <stop offset="1" stop-color="#6d5dfc" stop-opacity="0"></stop>
+        </linearGradient>
+      </defs>
+      <polygon data-area points={`0,64 ${line} 300,64`} fill="url(#pbSpark)"></polygon>
+      <polyline data-line points={line} fill="none" stroke="#a9a3ff" stroke-width="1.6" stroke-linejoin="round" vector-effect="non-scaling-stroke"></polyline>
+    </svg>
+  </div>
+  <div class="logs" data-logs>
+    {logs.slice(1).map(([time, kind, msg, dur]) => (
+      <div class="row">
+        <span class="time">{time}</span>
+        <span class={`kind ${kind.toLowerCase()}`}>{kind}</span>
+        <span class="msg">{msg}</span>
+        <span class="dur">{dur}</span>
+      </div>
+    ))}
+  </div>
+  <div class="note">{t.note}</div>
+</div>
+
+<style>
+  .panel {
+    width: 100%;
+    color: #e8e9f3;
+    border-radius: 18px;
+    border: 1px solid rgba(169, 163, 255, 0.16);
+    background: linear-gradient(#151a2e, #0f1322);
+    box-shadow:
+      rgba(109, 93, 252, 0.45) 0 40px 100px -40px,
+      rgba(255, 255, 255, 0.04) 0 1px 0 inset;
+    overflow: hidden;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid rgba(169, 163, 255, 0.1);
+    font-size: 12px;
+    color: #8a90aa;
+  }
+  .win {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .win span {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #2a3050;
+  }
+  .win b {
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .live {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #9fe3c0;
+  }
+  .live i {
+    width: 7px;
+    height: 7px;
+    border-radius: 999px;
+    background: #7dd3a8;
+    box-shadow: rgba(125, 211, 168, 0.15) 0 0 0 4px;
+  }
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-bottom: 1px solid rgba(169, 163, 255, 0.1);
+  }
+  .stats > div {
+    padding: 16px clamp(10px, 3vw, 18px) 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+  }
+  .stats > div + div {
+    border-left: 1px solid rgba(169, 163, 255, 0.1);
+  }
+  .k {
+    font-size: 11px;
+    color: #8a90aa;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .v {
+    font-size: clamp(16px, 4.6vw, 22px);
+    font-weight: 500;
+    color: #fff;
+    font-variant-numeric: tabular-nums;
+  }
+  .chart {
+    padding: 16px 18px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border-bottom: 1px solid rgba(169, 163, 255, 0.1);
+  }
+  .chart-head {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #8a90aa;
+  }
+  .rate {
+    color: #a9a3ff;
+  }
+  .rate b {
+    font-weight: 400;
+  }
+  svg {
+    width: 100%;
+    height: 64px;
+    display: block;
+  }
+  .logs {
+    padding: 12px 18px 16px;
+    height: 212px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 7px;
+    font-size: 12.5px;
+    overflow: hidden;
+    mask-image: linear-gradient(transparent, #000 34%);
+    -webkit-mask-image: linear-gradient(transparent, #000 34%);
+  }
+  .logs :global(.row) {
+    display: flex;
+    gap: 12px;
+    white-space: nowrap;
+    min-width: 0;
+    padding: 2px 6px;
+    margin: 0 -6px;
+    border-radius: 6px;
+    flex: none;
+  }
+  .logs :global(.row.fresh) {
+    background: rgba(169, 163, 255, 0.1);
+  }
+  .logs :global(.time) {
+    color: #5f6684;
+  }
+  .logs :global(.kind) {
+    width: 4ch;
+    flex: none;
+  }
+  .logs :global(.get),
+  .logs :global(.put),
+  .logs :global(.post) {
+    color: #7dd3a8;
+  }
+  .logs :global(.hook) {
+    color: #a9a3ff;
+  }
+  .logs :global(.job) {
+    color: #f2c27b;
+  }
+  .logs :global(.msg) {
+    color: #c9cce0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .logs :global(.dur) {
+    margin-left: auto;
+    color: #8a90aa;
+  }
+  .note {
+    padding: 10px 18px;
+    border-top: 1px solid rgba(169, 163, 255, 0.1);
+    font-size: 11px;
+    color: #6c7391;
+  }
+</style>

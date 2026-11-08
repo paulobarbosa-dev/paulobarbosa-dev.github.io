@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --bg: #0b0f19;
+  --bg-header: rgba(11, 15, 25, 0.78);
+  --band: #0e1220;
+  --surface: #111527;
+  --card-from: rgba(21, 26, 46, 0.7);
+  --card-to: rgba(15, 19, 34, 0.7);
+  --frame: #0d1120;
+  --frame-inner: #11162a;
+  --photo-from: #1d2340;
+  --text: #e8e9f3;
+  --strong: #ffffff;
+  --muted: #aab0c6;
+  --dim: #8a90aa;
+  --faint: #6c7391;
+  --body2: #d4d6e6;
+  --about: #c3c7da;
+  --accent: #6d5dfc;
+  --accent-2: #a9a3ff;
+  --chip-text: #c3bfff;
+  --chip-bg: rgba(169, 163, 255, 0.08);
+  --line: rgba(169, 163, 255, 0.1);
+  --border: rgba(169, 163, 255, 0.12);
+  --border-2: rgba(169, 163, 255, 0.16);
+  --border-3: rgba(169, 163, 255, 0.22);
+  --dot: rgba(169, 163, 255, 0.13);
+  --glow: rgba(109, 93, 252, 0.22);
+  --green: #7dd3a8;
+  --green-text: #9fe3c0;
+  --green-bg: rgba(125, 211, 168, 0.07);
+  --green-border: rgba(125, 211, 168, 0.28);
+  --marker-off: #2a3050;
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f6f6fb;
+  --bg-header: rgba(246, 246, 251, 0.82);
+  --band: #eef0f7;
+  --surface: #ffffff;
+  --card-from: rgba(255, 255, 255, 0.92);
+  --card-to: rgba(248, 248, 253, 0.92);
+  --frame: #eef0f7;
+  --frame-inner: #e8eaf4;
+  --photo-from: #e3e5f3;
+  --text: #1f2233;
+  --strong: #0b0f19;
+  --muted: #4c5270;
+  --dim: #646a88;
+  --faint: #8a90aa;
+  --body2: #2c3046;
+  --about: #3a3f58;
+  --accent: #5b4bf0;
+  --accent-2: #5444e0;
+  --chip-text: #4a3dd4;
+  --chip-bg: rgba(91, 75, 240, 0.08);
+  --line: rgba(40, 44, 90, 0.1);
+  --border: rgba(40, 44, 90, 0.12);
+  --border-2: rgba(40, 44, 90, 0.16);
+  --border-3: rgba(40, 44, 90, 0.22);
+  --dot: rgba(60, 64, 130, 0.12);
+  --glow: rgba(109, 93, 252, 0.14);
+  --green: #1f9d63;
+  --green-text: #137a4b;
+  --green-bg: rgba(31, 157, 99, 0.08);
+  --green-border: rgba(31, 157, 99, 0.3);
+  --marker-off: #c9cce0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 80px;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+html.theme-fade body,
+html.theme-fade body * {
+  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease !important;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 40px);
+}
+
+.dots {
+  background-image: radial-gradient(var(--dot) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.skip {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+}
+
+.skip:focus {
+  top: 12px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 3px;
+}
+
+.section {
+  padding: clamp(72px, 8vw, 112px) 0;
+}
+
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--accent-2);
+}
+
+.h2 {
+  margin: 0;
+  font-size: clamp(36px, 4.6vw, 56px);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  color: var(--strong);
+}
+
+.lead {
+  margin: 0;
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+}
+
+.chip {
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: var(--chip-bg);
+  color: var(--chip-text);
+}
+
+.mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.mask > span {
+  display: inline-block;
+}
+
+/* Elements start hidden only when JS motion is active, so no-JS and reduced motion show everything. */
+html.motion [data-reveal] {
+  opacity: 0;
+}
+
+html.motion .mask > span {
+  transform: translateY(105%);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
