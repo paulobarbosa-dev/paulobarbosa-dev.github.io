@@ -23,7 +23,6 @@ function onEnter(trigger: Element, build: (tl: gsap.core.Timeline) => void, star
 function heroIntro() {
   const tl = gsap.timeline({ defaults: { ease } })
   tl.fromTo('[data-anim-header]', { opacity: 0, y: -8 }, { opacity: 1, y: 0, duration: 0.4 }, 0)
-  tl.to('[data-hero="badge"]', { ...fadeUp(16), duration: 0.6 }, 0.1)
   tl.to('[data-hero="hello"]', { y: 0, duration: 0.7 }, 0.18)
   tl.to('[data-hero="word"]', { y: 0, duration: 0.9, stagger: 0.07 }, 0.26)
   tl.to('[data-hero="panel"]', { opacity: 1, y: 0, scale: 1, startAt: { opacity: 0, y: 24, scale: 0.96 }, duration: 0.9 }, 0.3)

@@ -79,7 +79,6 @@ export const content = {
     },
     resumeFile: '/cv/PauloBarbosa-Curriculo-PT.pdf',
     hero: {
-      badge: 'Disponível para vagas remotas',
       hello: 'Olá, eu sou o Paulo.',
       title: ['Software Engineer', 'Full Stack'],
       subtitle: 'Construo sistemas que aguentam o dia a dia de um negócio: SaaS multi-tenant, e-commerce e financeiro, do banco de dados à interface, com ',
@@ -257,7 +256,6 @@ export const content = {
     },
     resumeFile: '/cv/PauloBarbosa-Curriculo-EN.pdf',
     hero: {
-      badge: 'Open to remote roles',
       hello: "Hi, I'm Paulo.",
       title: ['Full Stack', 'Software Engineer'],
       subtitle: "I build systems that hold up to a business's daily load: multi-tenant SaaS, e-commerce and finance, from the database to the interface, with ",
