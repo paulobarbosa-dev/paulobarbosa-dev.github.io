@@ -81,7 +81,7 @@ const decimal = locale === 'pt' ? ',' : '.'
           <span class="desc">{t.impact.items[2]}</span>
         </div>
         <div class="impact-card" data-reveal data-impact-card>
-          <span class="num mono nowrap"><span class="was">40</span><b>→</b><span data-num="5" data-from="40" data-format="int">5</span><small> min</small></span>
+          <span class="num mono nowrap">~<span data-num="3.5" data-format="dec" data-decimal={decimal}>{`3${decimal}5`}</span><small> min</small></span>
           <span class="desc">{t.impact.items[3]}</span>
         </div>
         <div class="impact-card" data-reveal data-impact-card>

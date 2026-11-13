@@ -102,7 +102,7 @@ export const content = {
     marqueeLabel: 'Tecnologias',
     impact: {
       title: ['Escala real, ', 'resultado medido'],
-      items: ['lojas em uma plataforma multi-tenant', 'de produtos sincronizados', 'requisições HTTP por dia', 'no tempo de deploy', 'de processamento desnecessário'],
+      items: ['lojas em uma plataforma multi-tenant', 'de produtos sincronizados', 'requisições HTTP por dia', 'do merge à produção, sem deploy manual', 'de carga de renderização com bots'],
     },
     projects: {
       label: '01 / Projetos',
@@ -175,7 +175,7 @@ export const content = {
           role: 'Software Engineer',
           company: 'ecenture',
           period: 'nov 2025 – presente',
-          text: 'Plataforma de e-commerce multi-tenant (dezenas de lojas, ~1M de produtos) e ERP com módulo financeiro em C#/.NET. Deploy de 40 para 5 minutos, −49,5% de processamento desnecessário, migração do financeiro legado sem perda de dados.',
+          text: 'Plataforma de e-commerce multi-tenant (dezenas de lojas, ~1M de produtos) e ERP com módulo financeiro em C#/.NET. Deploy manual substituído por automático (~3,5 min do merge à produção), −49,5% de carga de renderização com bots, migração do financeiro legado sem perda de dados.',
           tags: jobTags[0],
         },
         {
@@ -279,7 +279,7 @@ export const content = {
     marqueeLabel: 'Technologies',
     impact: {
       title: ['Real scale, ', 'measured results'],
-      items: ['stores on one multi-tenant platform', 'products in sync', 'HTTP requests per day', 'deploy time', 'unnecessary processing'],
+      items: ['stores on one multi-tenant platform', 'products in sync', 'HTTP requests per day', 'from merge to production, no manual deploys', 'page-rendering load from bots'],
     },
     projects: {
       label: '01 / Projects',
@@ -352,7 +352,7 @@ export const content = {
           role: 'Software Engineer',
           company: 'ecenture',
           period: 'Nov 2025 – present',
-          text: 'Multi-tenant e-commerce platform (dozens of stores, ~1M products) and an ERP with a financial module in C#/.NET. Deploy time from 40 to 5 minutes, −49.5% unnecessary processing, legacy finance migration with no data loss.',
+          text: 'Multi-tenant e-commerce platform (dozens of stores, ~1M products) and an ERP with a financial module in C#/.NET. Manual deploys replaced with automated ones (~3.5 min from merge to production), −49.5% page-rendering load from bots, legacy finance migration with no data loss.',
           tags: jobTags[0],
         },
         {
