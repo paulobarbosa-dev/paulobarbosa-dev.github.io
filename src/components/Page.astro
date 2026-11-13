@@ -28,7 +28,7 @@ const decimal = locale === 'pt' ? ',' : '.'
         <div class="hero-titles">
           <p class="hello"><span class="mask"><span data-hero="hello">{t.hero.hello}</span></span></p>
           <h1 class="h1">
-            <span class="h1-line">{words(t.hero.title[0]).map((w, i) => <>{i > 0 && ' '}<span class="mask"><span data-hero="word">{w}</span></span></>)}</span>
+            <span class="h1-line">{words(t.hero.title[0]).map((w, i) => <>{i > 0 && ' '}<span class="mask"><span data-hero="word">{w}</span></span></>)}</span>{' '}
             <span class="h1-line accent">{words(t.hero.title[1]).map((w, i) => <>{i > 0 && ' '}<span class="mask"><span data-hero="word">{w}</span></span></>)}</span>
           </h1>
         </div>
@@ -223,16 +223,16 @@ const decimal = locale === 'pt' ? ',' : '.'
         <p class="lead contact-text" data-reveal data-contact-text>{t.contact.text}</p>
       </div>
       <div class="contact-grid">
-        <a href="mailto:paulobarbosacode@gmail.com" class="contact-card primary" data-reveal data-contact-link>
-          <span class="cc"><span class="cc-k">{t.contact.email}</span><span class="cc-v mono">paulobarbosacode@gmail.com</span></span>
+        <a href="mailto:luizpauloalvescode@gmail.com" class="contact-card primary" data-reveal data-contact-link>
+          <span class="cc"><span class="cc-k">{t.contact.email}</span><span class="cc-v mono">luizpauloalvescode@gmail.com</span></span>
           <svg class="cc-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
         </a>
-        <a href="https://www.linkedin.com/in/paulobarbosa-dev/" class="contact-card" target="_blank" rel="noopener" data-reveal data-contact-link>
-          <span class="cc"><span class="cc-k">LinkedIn</span><span class="cc-v mono">/in/paulobarbosa-dev</span></span>
+        <a href="https://www.linkedin.com/in/luizalvesdev/" class="contact-card" target="_blank" rel="noopener" data-reveal data-contact-link>
+          <span class="cc"><span class="cc-k">LinkedIn</span><span class="cc-v mono">/in/luizalvesdev</span></span>
           <svg class="cc-arrow diag" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
         </a>
-        <a href="https://github.com/paulobarbosa-dev" class="contact-card" target="_blank" rel="noopener" data-reveal data-contact-link>
-          <span class="cc"><span class="cc-k">GitHub</span><span class="cc-v mono">paulobarbosa-dev</span></span>
+        <a href="https://github.com/luizalvesdev" class="contact-card" target="_blank" rel="noopener" data-reveal data-contact-link>
+          <span class="cc"><span class="cc-k">GitHub</span><span class="cc-v mono">luizalvesdev</span></span>
           <svg class="cc-arrow diag" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"></path></svg>
         </a>
         <a href={t.resumeFile} class="contact-card" download data-reveal data-contact-link>
@@ -246,7 +246,7 @@ const decimal = locale === 'pt' ? ',' : '.'
 
 <footer class="footer">
   <div class="wrap footer-inner mono">
-    <span>© 2026 Paulo Barbosa</span>
+    <span>© 2026 Luiz Alves</span>
     <span>{t.footer.built}</span>
   </div>
 </footer>

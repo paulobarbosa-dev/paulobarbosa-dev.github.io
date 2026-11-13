@@ -1,6 +1,6 @@
-# paulobarbosa-dev.github.io
+# luizalvesdev.github.io
 
-Personal portfolio of Paulo Barbosa, Full Stack Software Engineer. Live at https://paulobarbosa-dev.github.io
+Personal portfolio of Luiz Alves, Full Stack Software Engineer. Live at https://luizalvesdev.github.io
 
 Built with Astro, GSAP (ScrollTrigger) and Lenis. Portuguese at `/`, English at `/en/`, dark and light themes, and every animation respects `prefers-reduced-motion`.
 

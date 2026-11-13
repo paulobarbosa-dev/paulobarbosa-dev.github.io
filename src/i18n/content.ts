@@ -19,15 +19,15 @@ const projectsBase = {
   broadcast: {
     stack: ['React', 'TypeScript', 'Firebase', 'Cloud Functions', 'Firestore', 'Vitest', 'GitHub Actions'],
     demo: 'https://broadcast-paulofilho.web.app',
-    code: 'https://github.com/paulobarbosa-dev/broadcast',
+    code: 'https://github.com/luizalvesdev/broadcast',
   },
   financas: {
     stack: ['Expo', 'React Native', 'TypeScript', 'PostgreSQL', 'Drizzle', 'Zod', 'Claude API'],
-    code: 'https://github.com/paulobarbosa-dev/financas',
+    code: 'https://github.com/luizalvesdev/financas',
   },
   prospect: {
     stack: ['TypeScript', 'Node.js', 'Fastify', 'React', 'SQLite', 'Amazon Bedrock', 'Cloudflare Workers'],
-    code: 'https://github.com/paulobarbosa-dev/lets-prospect',
+    code: 'https://github.com/luizalvesdev/lets-prospect',
   },
 }
 
@@ -54,7 +54,7 @@ const jobTags = [
 export const content = {
   pt: {
     lang: 'pt-BR',
-    title: 'Paulo Barbosa · Software Engineer Full Stack',
+    title: 'Luiz Alves · Software Engineer Full Stack',
     description:
       'Software Engineer Full Stack em Natal, RN. SaaS multi-tenant, e-commerce e sistemas financeiros com C#/.NET, Node.js e React.',
     nav: [
@@ -77,9 +77,9 @@ export const content = {
       closeMenu: 'Fechar menu',
       skip: 'Pular para o conteúdo',
     },
-    resumeFile: '/cv/PauloBarbosa-Curriculo-PT.pdf',
+    resumeFile: '/cv/LuizAlves-Curriculo-PT.pdf',
     hero: {
-      hello: 'Olá, eu sou o Paulo.',
+      hello: 'Olá, eu sou o Luiz.',
       title: ['Software Engineer', 'Full Stack'],
       subtitle: 'Construo sistemas que aguentam o dia a dia de um negócio: SaaS multi-tenant, e-commerce e financeiro, do banco de dados à interface, com ',
       subtitleStrong: 'C#/.NET, Node.js e React',
@@ -87,14 +87,14 @@ export const content = {
       cta2: 'Falar comigo',
     },
     panel: {
-      label: 'Ilustração: painel de operação com contadores, gráfico e logs de um sistema em produção. Dados ilustrativos.',
-      title: 'ops / produção',
-      live: 'ao vivo',
+      label: 'Ilustração decorativa: simulação de um painel de operação com contadores, gráfico e logs. Não são dados reais.',
+      title: 'ops / simulação',
+      live: 'demo',
       requests: 'Requisições',
       webhooks: 'Webhooks',
       jobs: 'Jobs',
       chart: 'req/s · últimos 60s',
-      note: 'dados ilustrativos',
+      note: 'simulação · não são dados reais',
       decimal: ',',
       thousands: '.',
     },
@@ -216,7 +216,7 @@ export const content = {
     about: {
       label: '04 / Sobre',
       title: 'Sobre',
-      photoAlt: 'Foto de Paulo Barbosa',
+      photoAlt: 'Foto de Luiz Alves',
       text: 'Sou desenvolvedor em Natal, no Rio Grande do Norte. Gosto de entender o sistema de ponta a ponta, da requisição na API à fila, ao banco e à tela, e de resolver o problema certo antes de escrever código. Hoje divido meu tempo entre .NET e Node.js em produção, estudo Engenharia de Software e construo projetos próprios para testar ideias.',
       education: 'Engenharia de Software · Descomplica (em andamento) · Formação Explorer · Rocketseat',
     },
@@ -231,7 +231,7 @@ export const content = {
   },
   en: {
     lang: 'en',
-    title: 'Paulo Barbosa · Full Stack Software Engineer',
+    title: 'Luiz Alves · Full Stack Software Engineer',
     description:
       'Full Stack Software Engineer based in Natal, Brazil. Multi-tenant SaaS, e-commerce and financial systems with C#/.NET, Node.js and React.',
     nav: [
@@ -254,9 +254,9 @@ export const content = {
       closeMenu: 'Close menu',
       skip: 'Skip to content',
     },
-    resumeFile: '/cv/PauloBarbosa-Curriculo-EN.pdf',
+    resumeFile: '/cv/LuizAlves-Resume-EN.pdf',
     hero: {
-      hello: "Hi, I'm Paulo.",
+      hello: "Hi, I'm Luiz.",
       title: ['Full Stack', 'Software Engineer'],
       subtitle: "I build systems that hold up to a business's daily load: multi-tenant SaaS, e-commerce and finance, from the database to the interface, with ",
       subtitleStrong: 'C#/.NET, Node.js and React',
@@ -264,14 +264,14 @@ export const content = {
       cta2: 'Get in touch',
     },
     panel: {
-      label: 'Illustration: operations panel with counters, a chart and logs from a production system. Illustrative data.',
-      title: 'ops / production',
-      live: 'live',
+      label: 'Decorative illustration: a simulated operations panel with counters, a chart and logs. Not real data.',
+      title: 'ops / simulation',
+      live: 'demo',
       requests: 'Requests',
       webhooks: 'Webhooks',
       jobs: 'Jobs',
       chart: 'req/s · last 60s',
-      note: 'illustrative data',
+      note: 'simulation · not real data',
       decimal: '.',
       thousands: ',',
     },
@@ -393,7 +393,7 @@ export const content = {
     about: {
       label: '04 / About',
       title: 'About',
-      photoAlt: 'Photo of Paulo Barbosa',
+      photoAlt: 'Photo of Luiz Alves',
       text: "I'm a developer based in Natal, Brazil. I like understanding systems end to end, from the API request to the queue, the database and the screen, and solving the right problem before writing code. Today I split my time between .NET and Node.js in production, study Software Engineering and build my own projects to test ideas.",
       education: 'Software Engineering · Descomplica (in progress) · Explorer Program · Rocketseat',
     },
