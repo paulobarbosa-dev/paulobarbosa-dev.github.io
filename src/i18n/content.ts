@@ -175,7 +175,7 @@ export const content = {
           role: 'Software Engineer',
           company: 'ecenture',
           period: 'nov 2025 – presente',
-          text: 'Plataforma de e-commerce multi-tenant (87 lojas, ~1M de produtos) e ERP com módulo financeiro em C#/.NET. Deploy de 40 para 5 minutos, −49,5% de processamento desnecessário, migração do financeiro legado sem perda de dados.',
+          text: 'Plataforma de e-commerce multi-tenant (dezenas de lojas, ~1M de produtos) e ERP com módulo financeiro em C#/.NET. Deploy de 40 para 5 minutos, −49,5% de processamento desnecessário, migração do financeiro legado sem perda de dados.',
           tags: jobTags[0],
         },
         {
@@ -352,7 +352,7 @@ export const content = {
           role: 'Software Engineer',
           company: 'ecenture',
           period: 'Nov 2025 – present',
-          text: 'Multi-tenant e-commerce platform (87 stores, ~1M products) and an ERP with a financial module in C#/.NET. Deploy time from 40 to 5 minutes, −49.5% unnecessary processing, legacy finance migration with no data loss.',
+          text: 'Multi-tenant e-commerce platform (dozens of stores, ~1M products) and an ERP with a financial module in C#/.NET. Deploy time from 40 to 5 minutes, −49.5% unnecessary processing, legacy finance migration with no data loss.',
           tags: jobTags[0],
         },
         {
